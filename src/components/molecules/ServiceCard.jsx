@@ -9,8 +9,8 @@ export default function ServiceCard({ icon, title, text }) {
       variant="outlined"
       sx={{
         bgcolor: "background.paper",
-        borderColor: "rgba(24, 32, 38, 0.13)",
-        boxShadow: "0 16px 46px rgba(24, 32, 38, 0.08)",
+        borderColor: "rgba(0, 9, 102, 0.13)",
+        boxShadow: "0 16px 46px rgba(0, 9, 102, 0.08)",
         height: "100%",
       }}
     >

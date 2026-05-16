@@ -13,8 +13,8 @@ export default function Header() {
       elevation={0}
       sx={{
         backdropFilter: "blur(16px)",
-        bgcolor: "rgba(247, 244, 238, 0.94)",
-        borderBottom: "1px solid rgba(24, 32, 38, 0.12)",
+        bgcolor: "rgba(255, 255, 255, 0.94)",
+        borderBottom: "1px solid rgba(0, 9, 102, 0.12)",
       }}
     >
       <Toolbar
@@ -47,7 +47,7 @@ export default function Header() {
               href={item.href}
               variant="text"
               color="inherit"
-              sx={{ color: "#33424c", minWidth: 0, px: { xs: 0.75, sm: 1.25 } }}
+              sx={{ color: "text.primary", minWidth: 0, px: { xs: 0.75, sm: 1.25 } }}
             >
               {item.label}
             </Button>

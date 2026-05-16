@@ -11,7 +11,7 @@ export default function ContactSection() {
       component="section"
       id="contact"
       sx={{
-        bgcolor: "#edf4f1",
+        bgcolor: "rgba(0, 198, 211, 0.08)",
         px: "clamp(18px, 5vw, 78px)",
         py: "clamp(64px, 9vw, 110px)",
       }}
@@ -30,9 +30,9 @@ export default function ContactSection() {
           sx={{
             alignContent: "start",
             bgcolor: "background.paper",
-            border: "1px solid rgba(24, 32, 38, 0.13)",
+            border: "1px solid rgba(0, 9, 102, 0.13)",
             borderRadius: 1,
-            boxShadow: "0 16px 46px rgba(24, 32, 38, 0.08)",
+            boxShadow: "0 16px 46px rgba(0, 9, 102, 0.08)",
             p: { xs: 2.5, sm: 3.25 },
           }}
         >

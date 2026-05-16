@@ -7,7 +7,7 @@ export default function ContactMethod({ icon, label, href }) {
   const content = (
     <Stack direction="row" alignItems="center" spacing={1.5}>
       <IconFrame icon={icon} size={21} />
-      <Typography component="span" sx={{ color: "#33424c", fontWeight: 750 }}>
+      <Typography component="span" sx={{ color: "text.primary", fontWeight: 750 }}>
         {label}
       </Typography>
     </Stack>

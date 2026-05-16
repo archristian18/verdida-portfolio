@@ -10,9 +10,9 @@ export default function ContactForm() {
       spacing={2}
       sx={{
         bgcolor: "background.paper",
-        border: "1px solid rgba(24, 32, 38, 0.13)",
+        border: "1px solid rgba(0, 9, 102, 0.13)",
         borderRadius: 1,
-        boxShadow: "0 16px 46px rgba(24, 32, 38, 0.08)",
+        boxShadow: "0 16px 46px rgba(0, 9, 102, 0.08)",
         p: { xs: 2.5, sm: 3.25 },
       }}
     >

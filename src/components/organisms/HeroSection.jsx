@@ -14,8 +14,8 @@ export default function HeroSection() {
       sx={{
         alignItems: "center",
         background:
-          'linear-gradient(rgba(24, 32, 38, 0.62), rgba(24, 32, 38, 0.45)), url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=80") center / cover',
-        color: "#fff",
+          'linear-gradient(rgba(0, 9, 102, 0.72), rgba(0, 166, 192, 0.5)), url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=80") center / cover',
+        color: "#FFFFFF",
         display: "grid",
         gap: "clamp(32px, 5vw, 76px)",
         gridTemplateColumns: { xs: "1fr", lg: "minmax(0, 1.05fr) minmax(320px, 0.95fr)" },
@@ -39,7 +39,7 @@ export default function HeroSection() {
         </Typography>
         <Typography
           sx={{
-            color: "rgba(255, 255, 255, 0.9)",
+            color: "rgba(255, 255, 255, 0.92)",
             fontSize: "clamp(1.05rem, 2vw, 1.35rem)",
             lineHeight: 1.6,
             maxWidth: 650,
@@ -66,10 +66,10 @@ export default function HeroSection() {
             variant="outlined"
             sx={{
               borderColor: "rgba(255, 255, 255, 0.5)",
-              color: "#fff",
+              color: "#FFFFFF",
               px: 2.5,
               width: { xs: "100%", sm: "auto" },
-              "&:hover": { borderColor: "#fff", bgcolor: "rgba(255, 255, 255, 0.08)" },
+              "&:hover": { borderColor: "#FFFFFF", bgcolor: "rgba(255, 255, 255, 0.1)" },
             }}
           >
             Learn More
@@ -81,7 +81,7 @@ export default function HeroSection() {
         <Box
           sx={{
             alignItems: "center",
-            bgcolor: "rgba(15, 107, 95, 0.9)",
+            bgcolor: "rgba(0, 9, 102, 0.9)",
             border: "1px solid rgba(255, 255, 255, 0.18)",
             borderRadius: 1,
             boxShadow: "0 24px 70px rgba(0, 0, 0, 0.22)",

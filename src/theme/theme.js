@@ -4,21 +4,21 @@ export const theme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#0f6b5f",
-      dark: "#0a4c43",
-      contrastText: "#ffffff",
+      main: "#00C6D3",
+      dark: "#00A6C0",
+      contrastText: "#000966",
     },
     secondary: {
-      main: "#d89d3d",
-      contrastText: "#182026",
+      main: "#00A6C0",
+      contrastText: "#000966",
     },
     background: {
-      default: "#f7f4ee",
-      paper: "#fffdf8",
+      default: "#FFFFFF",
+      paper: "#FFFFFF",
     },
     text: {
-      primary: "#182026",
-      secondary: "#60707b",
+      primary: "#000966",
+      secondary: "rgba(0, 9, 102, 0.72)",
     },
   },
   shape: {
