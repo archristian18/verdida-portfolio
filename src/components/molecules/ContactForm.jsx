@@ -3,10 +3,32 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { Send } from "lucide-react";
 
+const contactEmail = "archristian.cv@gmail.com";
+
 export default function ContactForm() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get("name")?.toString().trim() || "Website visitor";
+    const email = formData.get("email")?.toString().trim() || "Not provided";
+    const message = formData.get("message")?.toString().trim() || "";
+    const subject = `Contact inquiry from ${name}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      "",
+      "Message:",
+      message,
+    ].join("\n");
+
+    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <Stack
       component="form"
+      onSubmit={handleSubmit}
       spacing={2}
       sx={{
         bgcolor: "background.paper",
@@ -16,9 +38,9 @@ export default function ContactForm() {
         p: { xs: 2.5, sm: 3.25 },
       }}
     >
-      <TextField label="Full Name" name="name" placeholder="Your name" fullWidth />
-      <TextField label="Email Address" name="email" type="email" placeholder="you@example.com" fullWidth />
-      <TextField label="Message" name="message" placeholder="How can we help?" rows={5} multiline fullWidth />
+      <TextField label="Full Name" name="name" placeholder="Your name" fullWidth required />
+      <TextField label="Email Address" name="email" type="email" placeholder="you@example.com" fullWidth required />
+      <TextField label="Message" name="message" placeholder="How can we help?" rows={5} multiline fullWidth required />
       <Button
         type="submit"
         variant="contained"
