@@ -22,7 +22,7 @@ export default function AboutSection() {
       >
         <Stack spacing={2} sx={{ color: "text.secondary", fontSize: "1.08rem", lineHeight: 1.8 }}>
           <Typography sx={{ fontSize: "inherit", lineHeight: "inherit" }}>
-            Averida Surveying & Realty Services helps clients advertise, present, and manage real
+            AVerdida Surveying & Realty Services helps clients advertise, present, and manage real
             estate opportunities with a practical focus on trust, documentation, and market
             readiness.
           </Typography>

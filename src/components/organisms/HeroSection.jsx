@@ -35,7 +35,7 @@ export default function HeroSection() {
             mb: 2.75,
           }}
         >
-          Averida Surveying & Realty Services
+          AVerdida Surveying & Realty Services
         </Typography>
         <Typography
           sx={{
