@@ -67,8 +67,8 @@ export const contactMethods = [
   },
   {
     icon: Mail,
-    label: "archristian.cv@gmail.com",
-    href: "mailto:archristian.cv@gmail.com",
+    label: "archristian.software@gmail.com",
+    href: "mailto:archristian.software@gmail.com",
   },
   {
     icon: MapPin,

@@ -5,6 +5,9 @@ import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { Send } from "lucide-react";
 
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
 export default function ContactForm() {
   const [status, setStatus] = useState("idle");
   const [notice, setNotice] = useState("");
@@ -16,17 +19,17 @@ export default function ContactForm() {
     setNotice("");
 
     const formData = new FormData(event.currentTarget);
-    const name = formData.get("name")?.toString().trim() || "Website visitor";
-    const email = formData.get("email")?.toString().trim() || "Not provided";
-    const message = formData.get("message")?.toString().trim() || "";
+    formData.set("access_key", accessKey || "");
+    formData.set("subject", "Contact inquiry from AVerdida Surveying & Realty Services website");
 
     try {
-      const response = await fetch("/api/contact", {
+      if (!accessKey) {
+        throw new Error("Contact form is not configured yet.");
+      }
+
+      const response = await fetch(WEB3FORMS_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
+        body: formData,
       });
       const result = await response.json().catch(() => ({}));
 
@@ -57,6 +60,8 @@ export default function ContactForm() {
       }}
     >
       {notice ? <Alert severity={status === "success" ? "success" : "error"}>{notice}</Alert> : null}
+      <input type="hidden" name="access_key" value={accessKey || ""} />
+      <input type="hidden" name="subject" value="Contact inquiry from AVerdida Surveying & Realty Services website" />
       <TextField label="Full Name" name="name" placeholder="Your name" fullWidth required />
       <TextField label="Email Address" name="email" type="email" placeholder="you@example.com" fullWidth required />
       <TextField label="Message" name="message" placeholder="How can we help?" rows={5} multiline fullWidth required />
