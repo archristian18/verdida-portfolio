@@ -18,10 +18,7 @@ export default function Footer() {
       }}
     >
       <Typography component="span" sx={{ fontSize: "inherit" }}>
-        (c) 2026 AVerdida Surveying & Realty Services
-      </Typography>
-      <Typography component="span" sx={{ fontSize: "inherit" }}>
-        Advertising and realty support for property owners.
+        2026 AVerdida Surveying & Realty Services
       </Typography>
     </Box>
   );

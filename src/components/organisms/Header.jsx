@@ -25,8 +25,8 @@ export default function Header() {
           gap: { xs: 1.5, sm: 3 },
           justifyContent: "space-between",
           minHeight: "auto",
-          px: "clamp(18px, 4vw, 64px)",
-          py: 2.25,
+          px: "clamp(5px, 4vw, 20px)",
+          py: 1,
         }}
       >
         <Brand />
@@ -47,7 +47,7 @@ export default function Header() {
               href={item.href}
               variant="text"
               color="inherit"
-              sx={{ color: "text.primary", minWidth: 0, px: { xs: 0.75, sm: 1.25 } }}
+              sx={{ color: "text.primary", minWidth: 0, px: { xs: 1.25, sm: 1.8 } }}
             >
               {item.label}
             </Button>

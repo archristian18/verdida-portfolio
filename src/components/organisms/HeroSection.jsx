@@ -1,20 +1,42 @@
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { ArrowRight, Target } from "lucide-react";
-import Eyebrow from "../atoms/Eyebrow.jsx";
-import HighlightItem from "../molecules/HighlightItem.jsx";
-import { highlights } from "../../data/siteContent.js";
+import backgroundImage from "../../../background.jpg";
+import backgroundImage2 from "../../../background1.jpg";
+import CustomButton from "../atoms/CustomButton.jsx";
+
+const bannerImages = [
+  {
+    src: backgroundImage,
+    alt: "AVerdida Surveying and Realty Services office frontage",
+    title: "Office Location",
+  },
+  {
+    src: backgroundImage2,
+    alt: "Surveying equipment sample",
+    title: "GPS",
+  },
+];
 
 export default function HeroSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setCurrentIndex((index) => (index + 1) % bannerImages.length);
+    }, 3500);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <Box
       component="section"
       id="home"
       sx={{
         alignItems: "center",
-        background:
-          'linear-gradient(rgba(0, 9, 102, 0.72), rgba(0, 166, 192, 0.5)), url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=80") center / cover',
+        bgcolor: "rgba(0, 198, 211, 0.08)",
         color: "#FFFFFF",
         display: "grid",
         gap: "clamp(32px, 5vw, 76px)",
@@ -25,13 +47,13 @@ export default function HeroSection() {
       }}
     >
       <Box sx={{ maxWidth: 720 }}>
-        <Eyebrow>Advertising | Surveying | Realty</Eyebrow>
         <Typography
           component="h1"
           variant="h1"
           sx={{
-            fontSize: "clamp(3rem, 7vw, 6.7rem)",
+            fontSize: "clamp(3rem, 7vw, 3.7rem)",
             maxWidth: 850,
+            color: "primary.main",
             mb: 2.75,
           }}
         >
@@ -39,67 +61,58 @@ export default function HeroSection() {
         </Typography>
         <Typography
           sx={{
-            color: "rgba(255, 255, 255, 0.92)",
+            color: "rgba(0, 0, 0, 0.92)",
             fontSize: "clamp(1.05rem, 2vw, 1.35rem)",
             lineHeight: 1.6,
-            maxWidth: 650,
+            maxWidth: 750,
             mb: 4,
           }}
         >
-          Practical property advertising and real estate support for owners, buyers, developers,
-          and businesses that need their listings presented clearly and handled professionally.
+          We provide FAST, RELIABLE & SUFFICIENT Surveying and Realty Services
         </Typography>
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5 }}>
-          <Button
-            component="a"
-            href="#contact"
-            variant="contained"
-            color="secondary"
-            endIcon={<ArrowRight size={18} aria-hidden="true" />}
-            sx={{ px: 2.5, width: { xs: "100%", sm: "auto" } }}
-          >
+          <CustomButton component="a" href="#contact" type={undefined}>
             Contact Us
-          </Button>
-          <Button
-            component="a"
-            href="#about"
-            variant="outlined"
-            sx={{
-              borderColor: "rgba(255, 255, 255, 0.5)",
-              color: "#FFFFFF",
-              px: 2.5,
-              width: { xs: "100%", sm: "auto" },
-              "&:hover": { borderColor: "#FFFFFF", bgcolor: "rgba(255, 255, 255, 0.1)" },
-            }}
-          >
+          </CustomButton>
+          <CustomButton component="a" href="/survey-products" type={undefined}>
             Learn More
-          </Button>
+          </CustomButton>
         </Box>
       </Box>
 
-      <Box aria-label="Featured advertising services" sx={{ alignSelf: "end", display: "grid", gap: 2 }}>
+      <Box aria-label="Company images" sx={{ alignSelf: "center", display: "grid", gap: 1.5 }}>
         <Box
           sx={{
-            alignItems: "center",
-            bgcolor: "rgba(0, 9, 102, 0.9)",
-            border: "1px solid rgba(255, 255, 255, 0.18)",
+            aspectRatio: { xs: "4 / 3", sm: "16 / 10" },
             borderRadius: 1,
-            boxShadow: "0 24px 70px rgba(0, 0, 0, 0.22)",
-            display: "flex",
-            gap: 2.5,
-            justifyContent: "space-between",
-            p: 3,
+            overflow: "hidden",
+            position: "relative",
           }}
         >
-          <Box>
-            <Typography sx={{ color: "rgba(255, 255, 255, 0.75)", fontWeight: 750, mb: 0.5 }}>
-              Featured Service
-            </Typography>
-            <Typography component="h2" variant="h2" sx={{ fontSize: "clamp(1.5rem, 3vw, 2.3rem)", mb: 0 }}>
-              Property Campaign Planning
-            </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              height: "100%",
+              transform: `translateX(-${currentIndex * (100 / bannerImages.length)}%)`,
+              transition: "transform 0.6s ease",
+              width: `${bannerImages.length * 100}%`,
+            }}
+          >
+            {bannerImages.map((image) => (
+              <Box
+                key={image.title}
+                component="img"
+                src={image.src}
+                alt={image.alt}
+                sx={{
+                  flex: `0 0 ${100 / bannerImages.length}%`,
+                  height: "100%",
+                  objectFit: "cover",
+                  width: `${100 / bannerImages.length}%`,
+                }}
+              />
+            ))}
           </Box>
-          <Target size={34} aria-hidden="true" />
         </Box>
         <Box
           sx={{
@@ -108,8 +121,40 @@ export default function HeroSection() {
             gridTemplateColumns: { xs: "1fr", sm: "repeat(2, minmax(0, 1fr))" },
           }}
         >
-          {highlights.map((item) => (
-            <HighlightItem key={item}>{item}</HighlightItem>
+          {bannerImages.map((image) => (
+            <Box
+              key={image.title}
+              sx={{
+                alignItems: "center",
+                bgcolor: "rgba(255, 254, 254, 0.92)",
+                border: "1px solid rgba(14, 2, 2, 0.18)",
+                borderRadius: 1,
+                display: "grid",
+                gap: 1.25,
+                gridTemplateColumns: "88px minmax(0, 1fr)",
+                minHeight: 96,
+                overflow: "hidden",
+                p: 1,
+                boxShadow: "0 24px 70px rgba(0, 0, 0, 0.22)",
+              }}
+            >
+              <Box
+                component="img"
+                src={image.src}
+                alt={image.alt}
+                sx={{
+                  aspectRatio: "1 / 1",
+                  borderColor: "rgba(0, 0, 0, 0.2)",
+                  borderRadius: 0.75,
+                  display: "block",
+                  objectFit: "cover",
+                  width: "100%",
+                }}
+              />
+              <Typography sx={{ color: "#000000", fontWeight: 800, lineHeight: 1.25 }}>
+                {image.title}
+              </Typography>
+            </Box>
           ))}
         </Box>
       </Box>

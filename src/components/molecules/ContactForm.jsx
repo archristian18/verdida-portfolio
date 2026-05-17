@@ -1,10 +1,9 @@
-import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
-import { Send } from "lucide-react";
+import CustomButton from "../atoms/CustomButton.jsx";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
@@ -77,16 +76,9 @@ export default function ContactForm() {
         <TextField label="Full Name" name="name" placeholder="Your name" fullWidth required />
         <TextField label="Email Address" name="email" type="email" placeholder="you@example.com" fullWidth required />
         <TextField label="Message" name="message" placeholder="How can we help?" rows={5} multiline fullWidth required />
-        <Button
-          type="submit"
-          variant="contained"
-          color="secondary"
-          disabled={status === "submitting"}
-          endIcon={<Send size={18} aria-hidden="true" />}
-          sx={{ alignSelf: { xs: "stretch", sm: "flex-start" }, px: 2.5 }}
-        >
+        <CustomButton>
           {status === "submitting" ? "Sending..." : "Send Message"}
-        </Button>
+        </CustomButton>
       </Stack>
       <Snackbar
         open={toast.open}

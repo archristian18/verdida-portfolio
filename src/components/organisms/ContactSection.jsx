@@ -16,7 +16,7 @@ export default function ContactSection() {
         py: "clamp(64px, 9vw, 110px)",
       }}
     >
-      <SectionHeading eyebrow="Contact Us" title="Tell us what property or service you want to promote." />
+      <SectionHeading eyebrow="Send for inquiries" title="Contact Us" />
 
       <Box
         sx={{

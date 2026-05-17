@@ -1,23 +1,19 @@
 import Box from "@mui/material/Box";
+import logoUrl from "../../../logo.jpg";
 
 export default function BrandMark() {
   return (
     <Box
-      component="span"
+      component="img"
+      src={logoUrl}
+      alt="AVerdida Surveying & Realty Services logo"
       sx={{
-        alignItems: "center",
-        bgcolor: "primary.main",
         borderRadius: 1,
-        color: "primary.contrastText",
-        display: "grid",
         flex: "0 0 auto",
-        fontWeight: 850,
-        height: 42,
-        placeItems: "center",
-        width: 42,
+        height: { xs: 88, sm: 100 },
+        objectFit: "contain",
+        width: { xs: 88, sm: 100 },
       }}
-    >
-      A
-    </Box>
+    />
   );
 }

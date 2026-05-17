@@ -1,9 +1,12 @@
 import {
   BarChart3,
   Building2,
+  Clock,
+  Compass,
+  DraftingCompass,
+  ExternalLink,
   Mail,
   MapPin,
-  Megaphone,
   Phone,
   Ruler,
   ShieldCheck,
@@ -11,39 +14,54 @@ import {
 } from "lucide-react";
 
 export const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About Us", href: "/#about" },
+  { label: "Contact Us", href: "/#contact" },
 ];
 
 export const services = [
   {
-    icon: Megaphone,
-    title: "Property Advertising",
-    text: "Clear campaigns for lots, residential properties, commercial listings, and project launches.",
+    icon: MapPin,
+    title: "Relocation Survey",
+    text: "Boundary relocation support for confirming property limits and reference points.",
   },
   {
     icon: Ruler,
-    title: "Surveying Support",
-    text: "Professional survey coordination for boundaries, subdivision needs, and property documentation.",
+    title: "Subdivision Survey",
+    text: "Survey preparation for dividing land parcels into approved lots.",
+  },
+  {
+    icon: DraftingCompass,
+    title: "Consolidation-Subdivision Survey",
+    text: "Survey work for combining parcels and subdividing them under one plan.",
   },
   {
     icon: Building2,
-    title: "Realty Services",
-    text: "Buyer and seller assistance with grounded property advice from inquiry to closing.",
+    title: "Consolidation Survey",
+    text: "Survey documentation for merging adjoining properties into a single parcel.",
   },
   {
     icon: BarChart3,
-    title: "Market Positioning",
-    text: "Listing copy, offer structure, and channel planning built around the property's strongest value.",
+    title: "Topographic Survey",
+    text: "Site elevation and feature mapping for planning, design, and development work.",
+  },
+  {
+    icon: Compass,
+    title: "Construction Survey",
+    text: "Layout and measurement support for construction alignment and site execution.",
+  },
+  {
+    icon: Target,
+    title: "Real Estate Planning and Consultation",
+    text: "Guidance for property planning, development options, and real estate decisions.",
   },
 ];
 
 export const highlights = [
-  "Property listing campaigns",
-  "Land and real estate consultation",
-  "Surveying coordination",
-  "Buyer and seller assistance",
+  "Relocation and subdivision surveys",
+  "Consolidation survey documentation",
+  "Topographic and construction surveys",
+  "Real estate planning and consultation",
 ];
 
 export const values = [
@@ -62,16 +80,26 @@ export const values = [
 export const contactMethods = [
   {
     icon: Phone,
-    label: "+63 900 000 0000",
-    href: "tel:+639000000000",
+    label: "0932-5766-140 | 0926-0028-443",
   },
   {
     icon: Mail,
-    label: "archristian.software@gmail.com",
-    href: "mailto:archristian.software@gmail.com",
+    label: "phrolverdida@yahoo.com",
   },
   {
     icon: MapPin,
-    label: "Philippines",
+    label: `Centennial Commercial Center
+    Unit 206, Pit-os, Cebu City`,
+  },
+  {
+    icon: ExternalLink,
+    label: "Facebook Page",
+    href: "https://www.facebook.com/averdidasurveying",
+    text: "www.facebook.com/averdidasurveying",
+  },
+  {
+    icon: Clock,
+    label: "Office Hours",
+    text: "8:00AM to 5:00PM, Monday to Saturday",
   },
 ];

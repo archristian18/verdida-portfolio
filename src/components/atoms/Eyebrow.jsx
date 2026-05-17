@@ -1,6 +1,6 @@
 import Typography from "@mui/material/Typography";
 
-export default function Eyebrow({ children, color = "secondary.main" }) {
+export default function Eyebrow({ children, color = "primary.main" }) {
   return (
     <Typography
       component="p"
