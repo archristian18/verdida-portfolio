@@ -6,7 +6,7 @@ import IconFrame from "../atoms/IconFrame.jsx";
 export default function ContactMethod({ icon, label, href, text }) {
   const isExternalLink = href?.startsWith("http");
   const content = (
-    <Stack direction="row" alignItems="flex-start" spacing={1.5}>
+    <Stack direction="row" spacing={1.5} sx={{ alignItems: "flex-start" }}>
       <IconFrame icon={icon} size={21} />
       <Stack spacing={0.25}>
         <Typography component="span" sx={{ color: "text.primary", fontWeight: 750 }}>

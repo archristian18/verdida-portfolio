@@ -75,7 +75,7 @@ export default function HeroSection() {
             Contact Us
           </CustomButton>
           <CustomButton component="a" href="/survey-products" type={undefined}>
-            Learn More
+            Highlights
           </CustomButton>
         </Box>
       </Box>
