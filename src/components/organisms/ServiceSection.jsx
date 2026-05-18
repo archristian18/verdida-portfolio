@@ -5,9 +5,9 @@ import SectionHeading from "../atoms/SectionHeading.jsx";
 import ServiceCard from "../molecules/ServiceCard.jsx";
 import { services, values } from "../../data/siteContent.js";
 
-export default function AboutSection() {
+export default function ServiceSection() {
   return (
-    <Box component="section" id="about" sx={{ px: "clamp(18px, 5vw, 78px)", py: "clamp(64px, 9vw, 110px)" }}>
+    <Box component="section" id="services" sx={{ px: "clamp(18px, 5vw, 78px)", py: "clamp(64px, 9vw, 110px)" }}>
       <SectionHeading
         eyebrow="Choose the service that fits your needs"
         title="SERVICES OFFERED:"
