@@ -10,28 +10,38 @@ const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
 export default function ContactForm() {
   const [status, setStatus] = useState("idle");
-  const [toast, setToast] = useState({ open: false, severity: "success", message: "" });
+  const [toast, setToast] = useState({
+    open: false,
+    severity: "success",
+    message: "",
+  });
 
   const showToast = (severity, message) => {
     setToast({ open: true, severity, message });
   };
 
   const closeToast = (_, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
+    if (reason === "clickaway") return;
 
-    setToast((currentToast) => ({ ...currentToast, open: false }));
+    setToast((currentToast) => ({
+      ...currentToast,
+      open: false,
+    }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
     setStatus("submitting");
 
-    const formData = new FormData(event.currentTarget);
     formData.set("access_key", accessKey || "");
-    formData.set("subject", "Contact inquiry from AVerdida Surveying & Realty Services website");
+    formData.set(
+      "subject",
+      "Contact inquiry from AVerdida Surveying & Realty Services website"
+    );
 
     try {
       if (!accessKey) {
@@ -42,13 +52,14 @@ export default function ContactForm() {
         method: "POST",
         body: formData,
       });
+
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok) {
         throw new Error(result.error || "Unable to send your message right now.");
       }
 
-      event.currentTarget.reset();
+      form.reset();
       setStatus("success");
       showToast("success", "Message sent to email. We will get back to you soon.");
     } catch (error) {
@@ -72,21 +83,56 @@ export default function ContactForm() {
         }}
       >
         <input type="hidden" name="access_key" value={accessKey || ""} />
-        <input type="hidden" name="subject" value="Contact inquiry from AVerdida Surveying & Realty Services website" />
-        <TextField label="Full Name" name="name" placeholder="Your name" fullWidth required />
-        <TextField label="Email Address" name="email" type="email" placeholder="you@example.com" fullWidth required />
-        <TextField label="Message" name="message" placeholder="How can we help?" rows={5} multiline fullWidth required />
-        <CustomButton>
+        <input
+          type="hidden"
+          name="subject"
+          value="Contact inquiry from AVerdida Surveying & Realty Services website"
+        />
+
+        <TextField
+          label="Full Name"
+          name="name"
+          placeholder="Your name"
+          fullWidth
+          required
+        />
+
+        <TextField
+          label="Email Address"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          fullWidth
+          required
+        />
+
+        <TextField
+          label="Message"
+          name="message"
+          placeholder="How can we help?"
+          rows={5}
+          multiline
+          fullWidth
+          required
+        />
+
+        <CustomButton disabled={status === "submitting"}>
           {status === "submitting" ? "Sending..." : "Send Message"}
         </CustomButton>
       </Stack>
+
       <Snackbar
         open={toast.open}
         autoHideDuration={5000}
         onClose={closeToast}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
       >
-        <Alert onClose={closeToast} severity={toast.severity} variant="filled" sx={{ width: "100%" }}>
+        <Alert
+          onClose={closeToast}
+          severity={toast.severity}
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
           {toast.message}
         </Alert>
       </Snackbar>
