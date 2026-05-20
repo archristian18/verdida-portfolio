@@ -5,3 +5,13 @@ html {
 body {
   min-width: 320px;
 }
+
+section[id] {
+  scroll-margin-top: 176px;
+}
+
+@media (min-width: 600px) {
+  section[id] {
+    scroll-margin-top: 116px;
+  }
+}
