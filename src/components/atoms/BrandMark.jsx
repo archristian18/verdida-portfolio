@@ -10,9 +10,9 @@ export default function BrandMark() {
       sx={{
         borderRadius: 1,
         flex: "0 0 auto",
-        height: { xs: 88, sm: 100 },
+        height: { xs: 72, sm: 100 },
         objectFit: "contain",
-        width: { xs: 88, sm: 100 },
+        width: { xs: 72, sm: 100 },
       }}
     />
   );
