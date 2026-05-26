@@ -270,9 +270,9 @@ export const cebuMunicipalities = [
 export const contactFormContent = {
   fallbackService: "Website Inquiry",
   fallbackMunicipality: "Cebu",
-  fromName: "AVerdida Surveying & Realty Services Website",
+  fromName: "Website - AVerdida Surveying & Realty Services",
   hiddenSubject: "Contact inquiry from AVerdida Surveying & Realty Services website",
-  successMessage: "Message sent to email. We will get back to you soon.",
+  successMessage: "Message sent successfully. We will get back to you soon and contact you using the contact details you provided.",
   configurationError: "Contact form is not configured yet.",
   submitError: "Unable to send your message right now.",
 };

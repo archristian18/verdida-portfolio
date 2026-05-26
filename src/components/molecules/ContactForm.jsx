@@ -40,8 +40,23 @@ const compactMenuItemSx = {
   py: 0.25,
 };
 
+const submissionDateFormatter = new Intl.DateTimeFormat("en-PH", {
+  dateStyle: "long",
+  timeZone: "Asia/Manila",
+});
+
+const submissionTimeFormatter = new Intl.DateTimeFormat("en-PH", {
+  hour: "numeric",
+  minute: "2-digit",
+  second: "2-digit",
+  timeZone: "Asia/Manila",
+  timeZoneName: "short",
+});
+
 export default function ContactForm() {
   const [status, setStatus] = useState("idle");
+  const [selectedService, setSelectedService] = useState("");
+  const [selectedMunicipality, setSelectedMunicipality] = useState("");
   const [toast, setToast] = useState({
     open: false,
     severity: "success",
@@ -92,9 +107,13 @@ export default function ContactForm() {
 
     setStatus("submitting");
 
+    const submittedAt = new Date();
+
     formData.set("access_key", accessKey || "");
     formData.set("subject", `AVS Inquiry: ${selectedService} - ${selectedMunicipality}`);
     formData.set("from_name", contactFormContent.fromName);
+    formData.set("Date Submitted", submissionDateFormatter.format(submittedAt));
+    formData.set("Time Submitted", submissionTimeFormatter.format(submittedAt));
 
     try {
       if (!accessKey) {
@@ -113,8 +132,10 @@ export default function ContactForm() {
       }
 
       form.reset();
+      setSelectedService("");
+      setSelectedMunicipality("");
+      setContactNumberError("");
       setStatus("success");
-      showToast("success", contactFormContent.successMessage);
     } catch (error) {
       setStatus("error");
       showToast("error", error.message || contactFormContent.submitError);
@@ -135,6 +156,12 @@ export default function ContactForm() {
           p: { xs: 2.5, sm: 3.25 },
         }}
       >
+        {status === "success" && (
+          <Alert severity="success" variant="filled">
+            {contactFormContent.successMessage}
+          </Alert>
+        )}
+
         <input type="hidden" name="access_key" value={accessKey || ""} />
         <input
           type="hidden"
@@ -189,7 +216,8 @@ export default function ContactForm() {
             label="Service"
             name="Service"
             select
-            defaultValue=""
+            value={selectedService}
+            onChange={(event) => setSelectedService(event.target.value)}
             fullWidth
             required
             slotProps={{
@@ -209,7 +237,8 @@ export default function ContactForm() {
             label="Municipality / City in Cebu"
             name="Municipality / City in Cebu"
             select
-            defaultValue=""
+            value={selectedMunicipality}
+            onChange={(event) => setSelectedMunicipality(event.target.value)}
             fullWidth
             required
             slotProps={{
