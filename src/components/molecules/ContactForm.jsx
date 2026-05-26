@@ -1,12 +1,44 @@
 import Alert from "@mui/material/Alert";
+import Box from "@mui/material/Box";
+import MenuItem from "@mui/material/MenuItem";
 import Snackbar from "@mui/material/Snackbar";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import CustomButton from "../atoms/CustomButton.jsx";
+import {
+  cebuMunicipalities,
+  contactFormContent,
+  services,
+} from "../../data/siteContent.js";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+const municipalityMenuProps = {
+  slotProps: {
+    paper: {
+      sx: {
+        maxHeight: "128px !important",
+        overflowY: "auto",
+      },
+    },
+    list: {
+      dense: true,
+      sx: {
+        maxHeight: "128px !important",
+        overflowY: "auto",
+        py: 0,
+      },
+    },
+  },
+};
+
+const compactMenuItemSx = {
+  fontSize: "0.8125rem",
+  minHeight: 32,
+  py: 0.25,
+};
 
 export default function ContactForm() {
   const [status, setStatus] = useState("idle");
@@ -34,18 +66,19 @@ export default function ContactForm() {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+    const selectedService = formData.get("Service") || contactFormContent.fallbackService;
+    const selectedMunicipality =
+      formData.get("Municipality / City in Cebu") || contactFormContent.fallbackMunicipality;
 
     setStatus("submitting");
 
     formData.set("access_key", accessKey || "");
-    formData.set(
-      "subject",
-      "Contact inquiry from AVerdida Surveying & Realty Services website"
-    );
+    formData.set("subject", `AVS Inquiry: ${selectedService} - ${selectedMunicipality}`);
+    formData.set("from_name", contactFormContent.fromName);
 
     try {
       if (!accessKey) {
-        throw new Error("Contact form is not configured yet.");
+        throw new Error(contactFormContent.configurationError);
       }
 
       const response = await fetch(WEB3FORMS_URL, {
@@ -56,15 +89,15 @@ export default function ContactForm() {
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        throw new Error(result.error || "Unable to send your message right now.");
+        throw new Error(result.error || contactFormContent.submitError);
       }
 
       form.reset();
       setStatus("success");
-      showToast("success", "Message sent to email. We will get back to you soon.");
+      showToast("success", contactFormContent.successMessage);
     } catch (error) {
       setStatus("error");
-      showToast("error", error.message || "Unable to send your message right now.");
+      showToast("error", error.message || contactFormContent.submitError);
     }
   };
 
@@ -86,12 +119,12 @@ export default function ContactForm() {
         <input
           type="hidden"
           name="subject"
-          value="Contact inquiry from AVerdida Surveying & Realty Services website"
+          value={contactFormContent.hiddenSubject}
         />
 
         <TextField
           label="Full Name"
-          name="name"
+          name="Full Name"
           placeholder="Your name"
           fullWidth
           required
@@ -107,13 +140,91 @@ export default function ContactForm() {
         />
 
         <TextField
+          label="Contact Number"
+          name="Contact Number"
+          type="text"
+          placeholder="09XXXXXXXXX"
+          fullWidth
+          required
+          slotProps={{
+            htmlInput: {
+              inputMode: "numeric",
+              pattern: "[0-9]*",
+              onInput: (event) => {
+                event.currentTarget.value = event.currentTarget.value.replace(/\D/g, "");
+              },
+            },
+          }}
+        />
+
+        <Box
+          sx={{
+            display: "grid",
+            gap: 2,
+            gridTemplateColumns: { xs: "1fr", md: "repeat(3, minmax(0, 1fr))" },
+          }}
+        >
+          <TextField
+            label="Service"
+            name="Service"
+            select
+            defaultValue=""
+            fullWidth
+            required
+            slotProps={{
+              select: {
+                MenuProps: municipalityMenuProps,
+              },
+            }}
+          >
+            {services.map((service) => (
+              <MenuItem key={service.title} value={service.title} dense sx={compactMenuItemSx}>
+                {service.title}
+              </MenuItem>
+            ))}
+          </TextField>
+
+          <TextField
+            label="Municipality / City in Cebu"
+            name="Municipality / City in Cebu"
+            select
+            defaultValue=""
+            fullWidth
+            required
+            slotProps={{
+              select: {
+                MenuProps: municipalityMenuProps,
+              },
+            }}
+          >
+            {cebuMunicipalities.map((municipality) => (
+              <MenuItem
+                key={municipality}
+                value={municipality}
+                dense
+                sx={compactMenuItemSx}
+              >
+                {municipality}
+              </MenuItem>
+            ))}
+          </TextField>
+
+          <TextField
+            label="Lot Area"
+            name="Lot Area"
+            placeholder="Lot area"
+            fullWidth
+            required
+          />
+        </Box>
+
+        <TextField
           label="Message"
-          name="message"
+          name="Message"
           placeholder="How can we help?"
           rows={5}
           multiline
           fullWidth
-          required
         />
 
         <CustomButton disabled={status === "submitting"}>

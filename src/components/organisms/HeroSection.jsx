@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import backgroundImage from "../../../background.jpg";
-import backgroundImage2 from "../../../background1.jpg";
+import bannerImage1 from "../../images/banner/banner_1.jpg";
+import bannerImage2 from "../../images/banner/banner_2.jpg";
+import bannerImage3 from "../../images/banner/banner_3.jpg";
+import bannerImage4 from "../../images/banner/banner_4.jpg";
+import bannerImage5 from "../../images/banner/banner_5.jpg";
+import bannerImage6 from "../../images/banner/banner_6.jpg";
+import { bannerSlides } from "../../data/siteContent.js";
 import CustomButton from "../atoms/CustomButton.jsx";
 
-const bannerImages = [
-  {
-    src: backgroundImage,
-    alt: "AVerdida Surveying and Realty Services office frontage",
-    title: "Office Location",
-  },
-  {
-    src: backgroundImage2,
-    alt: "Surveying equipment sample",
-    title: "GPS",
-  },
-];
+const bannerImageMap = {
+  banner1: bannerImage1,
+  banner2: bannerImage2,
+  banner3: bannerImage3,
+  banner4: bannerImage4,
+  banner5: bannerImage5,
+  banner6: bannerImage6,
+};
+
+const bannerImages = bannerSlides.map((slide) => ({
+  ...slide,
+  src: bannerImageMap[slide.imageKey],
+}));
 
 export default function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -107,7 +112,8 @@ export default function HeroSection() {
                 sx={{
                   flex: `0 0 ${100 / bannerImages.length}%`,
                   height: "100%",
-                  objectFit: "cover",
+                  bgcolor: "#FFFFFF",
+                  objectFit: "contain",
                   width: `${100 / bannerImages.length}%`,
                 }}
               />
@@ -119,6 +125,8 @@ export default function HeroSection() {
             display: "grid",
             gap: 1.5,
             gridTemplateColumns: { xs: "1fr", sm: "repeat(2, minmax(0, 1fr))" },
+            maxHeight: { sm: 220 },
+            overflowY: "auto",
           }}
         >
           {bannerImages.map((image) => (
@@ -147,7 +155,7 @@ export default function HeroSection() {
                   borderColor: "rgba(0, 0, 0, 0.2)",
                   borderRadius: 0.75,
                   display: "block",
-                  objectFit: "cover",
+                  objectFit: "contain",
                   width: "100%",
                 }}
               />
