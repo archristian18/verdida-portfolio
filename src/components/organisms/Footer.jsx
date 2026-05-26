@@ -20,6 +20,9 @@ export default function Footer() {
       <Typography component="span" sx={{ fontSize: "inherit" }}>
         2026 AVerdida Surveying & Realty Services
       </Typography>
+      <Typography component="span" sx={{ fontSize: "inherit" }}>
+        Designed and Developed by Archristian Verdida
+      </Typography>
     </Box>
   );
 }
