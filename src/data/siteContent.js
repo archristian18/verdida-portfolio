@@ -15,6 +15,7 @@ import {
 
 export const navItems = [
   { label: "Home", href: "/#home" },
+  { label: "Mission & Vision", href: "/#mission-vision" },
   { label: "Services", href: "/#services" },
   { label: "Contact Us", href: "/#contact" },
 ];
