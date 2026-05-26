@@ -47,6 +47,7 @@ export default function ContactForm() {
     severity: "success",
     message: "",
   });
+  const [contactNumberError, setContactNumberError] = useState("");
 
   const showToast = (severity, message) => {
     setToast({ open: true, severity, message });
@@ -61,14 +62,33 @@ export default function ContactForm() {
     }));
   };
 
+  const handleContactNumberInput = (event) => {
+    const input = event.currentTarget;
+    const numbersOnly = input.value.replace(/\D/g, "");
+
+    if (input.value !== numbersOnly) {
+      setContactNumberError("Contact number must contain numbers only.");
+    } else {
+      setContactNumberError("");
+    }
+
+    input.value = numbersOnly;
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+    const contactNumber = formData.get("Contact Number") || "";
     const selectedService = formData.get("Service") || contactFormContent.fallbackService;
     const selectedMunicipality =
       formData.get("Municipality / City in Cebu") || contactFormContent.fallbackMunicipality;
+
+    if (!/^09\d{9}$/.test(contactNumber)) {
+      setContactNumberError("Enter a valid 11-digit mobile number starting with 09.");
+      return;
+    }
 
     setStatus("submitting");
 
@@ -146,13 +166,14 @@ export default function ContactForm() {
           placeholder="09XXXXXXXXX"
           fullWidth
           required
+          error={Boolean(contactNumberError)}
+          helperText={contactNumberError || "Numbers only. Example: 09123456789"}
           slotProps={{
             htmlInput: {
               inputMode: "numeric",
-              pattern: "[0-9]*",
-              onInput: (event) => {
-                event.currentTarget.value = event.currentTarget.value.replace(/\D/g, "");
-              },
+              maxLength: 11,
+              pattern: "09[0-9]{9}",
+              onInput: handleContactNumberInput,
             },
           }}
         />
