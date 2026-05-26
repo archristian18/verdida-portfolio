@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { ArrowLeft } from "lucide-react";
 import { surveyHighlights } from "../../data/siteContent.js";
+import { pageSeo } from "../../data/seoContent.js";
 import image1 from "../../images/highlights/image_1.jpg";
 import image2 from "../../images/highlights/image_2.jpg";
 import image3 from "../../images/highlights/image_3.jpg";
@@ -13,6 +14,7 @@ import image7 from "../../images/highlights/image_7.jpg";
 import image8 from "../../images/highlights/image_8.jpg";
 import Footer from "../organisms/Footer.jsx";
 import Header from "../organisms/Header.jsx";
+import Seo from "../atoms/Seo.jsx";
 
 const highlightImages = {
   image1,
@@ -28,6 +30,7 @@ const highlightImages = {
 export default function SurveyProductsPage() {
   return (
     <>
+      <Seo page={pageSeo.surveyProducts} />
       <Header />
       <main>
         <Box
@@ -134,6 +137,8 @@ export default function SurveyProductsPage() {
                         component="img"
                         src={highlightImage}
                         alt={highlight.subtitle}
+                        decoding="async"
+                        loading="lazy"
                         sx={{
                           aspectRatio: "16 / 10",
                           display: "block",

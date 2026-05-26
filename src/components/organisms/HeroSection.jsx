@@ -109,6 +109,9 @@ export default function HeroSection() {
                 component="img"
                 src={image.src}
                 alt={image.alt}
+                decoding="async"
+                fetchPriority={image.imageKey === "banner1" ? "high" : "auto"}
+                loading={image.imageKey === "banner1" ? "eager" : "lazy"}
                 sx={{
                   flex: `0 0 ${100 / bannerImages.length}%`,
                   height: "100%",
@@ -150,6 +153,8 @@ export default function HeroSection() {
                 component="img"
                 src={image.src}
                 alt={image.alt}
+                decoding="async"
+                loading="lazy"
                 sx={{
                   aspectRatio: "1 / 1",
                   borderColor: "rgba(0, 0, 0, 0.2)",
