@@ -157,7 +157,11 @@ export default function ContactForm() {
         }}
       >
         {status === "success" && (
-          <Alert severity="success" variant="filled">
+          <Alert
+            severity="success"
+            variant="filled"
+            onClose={() => setStatus("idle")}
+          >
             {contactFormContent.successMessage}
           </Alert>
         )}
