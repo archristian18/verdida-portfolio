@@ -11,7 +11,7 @@ export default function ContactSection() {
       component="section"
       id="contact"
       sx={{
-        bgcolor: "rgba(0, 198, 211, 0.08)",
+        bgcolor: "FFFFFF",
         px: "clamp(18px, 5vw, 78px)",
         py: "clamp(64px, 9vw, 110px)",
       }}
