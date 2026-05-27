@@ -103,7 +103,7 @@ export const surveyHighlights = [
     subtitle: "AVERDIDA SURVEYING & Realty Services, Calendar Year 2026",
     text: "We hope you are doing great this January 2026, first month of the year...",
     link: "https://www.facebook.com/averdidasurveying/posts/pfbid0tupgqX6nSVgP8S7Eqm9YHh3JYPoaRSRq5ShhoSxHtPDYhoxfTQfaUowiihgoFnzrl",
-    imageKey: "image1",
+    imageKey: "image6",
   },
   {
     subtitle: "JANUARY 2026",
@@ -132,7 +132,7 @@ export const surveyHighlights = [
 3. Technical Data
 4. Communication`,
     link: "https://www.facebook.com/averdidasurveying/posts/pfbid02j9ZsXTuBQrZaYzKQ8cY5Vnsx1JNtJFGrgKKieVVnVfq2UCrHCaPwJjQxaN5vRW4el",
-    imageKey: "image6",
+    imageKey: "image1",
   },
   {
     subtitle: "Thank you to our dear clients",

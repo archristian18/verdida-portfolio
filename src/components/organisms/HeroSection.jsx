@@ -88,8 +88,10 @@ export default function HeroSection() {
       <Box aria-label="Company images" sx={{ alignSelf: "center", display: "grid", gap: 1.5 }}>
         <Box
           sx={{
-            aspectRatio: { xs: "4 / 3", sm: "16 / 10" },
+            aspectRatio: { xs: "4 / 3", sm: "16 / 9", lg: "16 / 10" },
+            bgcolor: "#FFFFFF",
             borderRadius: 1,
+            boxShadow: "0 24px 70px rgba(0, 0, 0, 0.18)",
             overflow: "hidden",
             position: "relative",
           }}
@@ -125,28 +127,23 @@ export default function HeroSection() {
         </Box>
         <Box
           sx={{
-            display: "grid",
-            gap: 1.5,
-            gridTemplateColumns: { xs: "1fr", sm: "repeat(2, minmax(0, 1fr))" },
-            maxHeight: { sm: 220 },
-            overflowY: "auto",
+            display: "flex",
+            gap: 1,
+            overflowX: "auto",
+            pb: 0.5,
           }}
         >
           {bannerImages.map((image) => (
             <Box
               key={image.title}
               sx={{
-                alignItems: "center",
                 bgcolor: "rgba(255, 254, 254, 0.92)",
                 border: "1px solid rgba(14, 2, 2, 0.18)",
                 borderRadius: 1,
-                display: "grid",
-                gap: 1.25,
-                gridTemplateColumns: "88px minmax(0, 1fr)",
-                minHeight: 96,
+                boxShadow: "0 14px 34px rgba(0, 0, 0, 0.14)",
+                flex: "0 0 clamp(88px, 16vw, 124px)",
                 overflow: "hidden",
                 p: 1,
-                boxShadow: "0 24px 70px rgba(0, 0, 0, 0.22)",
               }}
             >
               <Box
@@ -156,17 +153,15 @@ export default function HeroSection() {
                 decoding="async"
                 loading="lazy"
                 sx={{
-                  aspectRatio: "1 / 1",
+                  aspectRatio: "4 / 3",
                   borderColor: "rgba(0, 0, 0, 0.2)",
                   borderRadius: 0.75,
                   display: "block",
+                  height: "100%",
                   objectFit: "contain",
                   width: "100%",
                 }}
               />
-              <Typography sx={{ color: "#000000", fontWeight: 800, lineHeight: 1.25 }}>
-                {image.title}
-              </Typography>
             </Box>
           ))}
         </Box>
