@@ -213,7 +213,7 @@ export default function ContactForm() {
           sx={{
             display: "grid",
             gap: 2,
-            gridTemplateColumns: { xs: "1fr", md: "repeat(3, minmax(0, 1fr))" },
+            gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))" },
           }}
         >
           <TextField
@@ -236,7 +236,21 @@ export default function ContactForm() {
               </MenuItem>
             ))}
           </TextField>
-
+          <TextField
+            label="Lot Area"
+            name="Lot Area"
+            placeholder="Lot area"
+            fullWidth
+            required
+          />
+        </Box>
+        <Box
+            sx={{
+            display: "grid",
+            gap: 2,
+            gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))" },
+          }}
+        >
           <TextField
             label="Municipality / City in Cebu"
             name="Municipality / City in Cebu"
@@ -262,11 +276,10 @@ export default function ContactForm() {
               </MenuItem>
             ))}
           </TextField>
-
-          <TextField
-            label="Lot Area"
-            name="Lot Area"
-            placeholder="Lot area"
+        <TextField
+            label="Barangay"
+            name="Barangay"
+            placeholder="Barangay"
             fullWidth
             required
           />
