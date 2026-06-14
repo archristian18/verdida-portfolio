@@ -15,8 +15,8 @@ export default function ContactSection() {
       id="contact"
       sx={{
         bgcolor: "#FFFFFF",
-        px: "clamp(18px, 5vw, 78px)",
-        py: "clamp(64px, 9vw, 110px)",
+        px: "clamp(18px, 5vw, 70px)",
+        py: "clamp(54px, 9vw, 20px)",
       }}
     >
       <SectionHeading eyebrow="Send for inquiries" title="Contact Us" />
@@ -24,7 +24,7 @@ export default function ContactSection() {
       <Box
         sx={{
           display: "grid",
-          gap: "clamp(24px, 5vw, 62px)",
+          gap: "clamp(24px, 5vw, 25px)",
         }}
       >
         <Box

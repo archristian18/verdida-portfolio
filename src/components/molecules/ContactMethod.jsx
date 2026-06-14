@@ -18,7 +18,7 @@ export default function ContactMethod({ icon, label, href, text, items }) {
           </Typography>
         ) : null}
         {items?.length ? (
-          <Stack component="ul" spacing={0.5} sx={{ color: "text.secondary", m: 0, pl: 2.25 }}>
+          <Stack component="ul" sx={{ color: "text.secondary", m: 0, pl: 2 }}>
             {items.map((item) => (
               <Typography
                 key={item}
