@@ -172,24 +172,30 @@ export default function ContactForm() {
           name="subject"
           value={contactFormContent.hiddenSubject}
         />
+        <Box
+          sx={{
+            display: "grid",
+            gap: 2,
+            gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))" },
+          }}
+        >
+          <TextField
+            label="Full Name"
+            name="Full Name"
+            placeholder="Your name"
+            fullWidth
+            required
+          />
 
-        <TextField
-          label="Full Name"
-          name="Full Name"
-          placeholder="Your name"
-          fullWidth
-          required
-        />
-
-        <TextField
-          label="Email Address"
-          name="email"
-          type="email"
-          placeholder="you@example.com"
-          fullWidth
-          required
-        />
-
+          <TextField
+            label="Email Address"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            fullWidth
+            required
+          />
+        </Box>
         <TextField
           label="Contact Number"
           name="Contact Number"

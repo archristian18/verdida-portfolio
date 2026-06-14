@@ -35,7 +35,8 @@ export default function Header() {
           aria-label="Main navigation"
           sx={{
             display: "flex",
-            gap: { xs: 0.5, sm: 1.5, md: 3 },
+            flexWrap: "nowrap",
+            gap: { xs: 0.5, sm: 0.75, md: 1.25, lg: 2 },
             justifyContent: { xs: "space-between", sm: "flex-end" },
             width: { xs: "100%", sm: "auto" },
           }}
@@ -47,7 +48,13 @@ export default function Header() {
               href={item.href}
               variant="text"
               color="inherit"
-              sx={{ color: "text.primary", minWidth: 0, px: { xs: 1.25, sm: 1.8 } }}
+              sx={{
+                color: "text.primary",
+                minWidth: 0,
+                px: { xs: 0.5, sm: 1, md: 1.1, lg: 1.5 },
+                fontSize: { xs: "0.82rem", sm: "0.88rem", md: "0.94rem", lg: "1rem" },
+                whiteSpace: "nowrap",
+              }}
             >
               {item.label}
             </Button>

@@ -171,10 +171,12 @@ export const contactMethods = [
   {
     icon: Phone,
     label: "0932-5766-140 | 0926-0028-443",
+    column: "left",
   },
   {
     icon: Mail,
     label: "phrolverdida@yahoo.com",
+    column: "left",
   },
   {
     icon: MapPin,
@@ -182,32 +184,20 @@ export const contactMethods = [
     Unit 206, Pit-os, Cebu City`,
     href: "https://maps.app.goo.gl/ndKcUt46iAPhaZT37",
     text: "Open in Google Maps",
+    column: "right",
   },
   {
     icon: ExternalLink,
     label: "Facebook Page",
     href: "https://www.facebook.com/averdidasurveying",
     text: "www.facebook.com/averdidasurveying",
+    column: "right",
   },
   {
     icon: Clock,
     label: "Office Hours",
     text: "8:00AM to 5:00PM, Monday to Saturday",
-  },
-  {
-    icon: Building2,
-    label: "Our List of Equipments",
-    items: [
-      "One Set (1) of Galaxy G1 Multi-GNSS RTK",
-      "One Set (1) of Galaxy G6ii Multi-GNSS RTK",
-      "Two Set of Electronic Total Station with Tripods, Range Poles & Prisms",
-      `Office Space Setup - 6 table desk, six laptops,
-      one Printer wifi router & parking space`,
-      "Three set of hand-held radios",
-      `Three (3) transportation service for mobilization 
-      - Multicab Jeepney type, Toyota LiteAce & Toyota Rush`,
-      "Standard labor equipment - Hammer, Nails, Bags & Spray",
-    ],
+    column: "left",
   },
 ];
 
