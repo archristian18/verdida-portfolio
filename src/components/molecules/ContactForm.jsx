@@ -7,9 +7,8 @@ import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import CustomButton from "../atoms/CustomButton.jsx";
 import {
-  cebuMunicipalities,
   contactFormContent,
-  services,
+  techStack,
 } from "../../data/siteContent.js";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
@@ -149,7 +148,7 @@ export default function ContactForm() {
         onSubmit={handleSubmit}
         spacing={2}
         sx={{
-          bgcolor: "background.paper",
+          bgcolor: "background.gray",
           border: "1px solid rgba(0, 9, 102, 0.13)",
           borderRadius: 1,
           boxShadow: "0 16px 46px rgba(0, 9, 102, 0.08)",
@@ -175,23 +174,13 @@ export default function ContactForm() {
         <Box
           sx={{
             display: "grid",
-            gap: 2,
-            gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))" },
+            gap: 1,
           }}
         >
           <TextField
             label="Full Name"
             name="Full Name"
             placeholder="Your name"
-            fullWidth
-            required
-          />
-
-          <TextField
-            label="Email Address"
-            name="email"
-            type="email"
-            placeholder="you@example.com"
             fullWidth
             required
           />
@@ -214,83 +203,6 @@ export default function ContactForm() {
             },
           }}
         />
-
-        <Box
-          sx={{
-            display: "grid",
-            gap: 2,
-            gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))" },
-          }}
-        >
-          <TextField
-            label="Service"
-            name="Service"
-            select
-            value={selectedService}
-            onChange={(event) => setSelectedService(event.target.value)}
-            fullWidth
-            required
-            slotProps={{
-              select: {
-                MenuProps: municipalityMenuProps,
-              },
-            }}
-          >
-            {services.map((service) => (
-              <MenuItem key={service.title} value={service.title} dense sx={compactMenuItemSx}>
-                {service.title}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            label="Lot Area"
-            name="Lot Area"
-            placeholder="Lot area"
-            fullWidth
-            required
-          />
-        </Box>
-        <Box
-            sx={{
-            display: "grid",
-            gap: 2,
-            gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))" },
-          }}
-        >
-          <TextField
-            label="Municipality / City in Cebu"
-            name="Municipality / City in Cebu"
-            select
-            value={selectedMunicipality}
-            onChange={(event) => setSelectedMunicipality(event.target.value)}
-            fullWidth
-            required
-            slotProps={{
-              select: {
-                MenuProps: municipalityMenuProps,
-              },
-            }}
-          >
-            {cebuMunicipalities.map((municipality) => (
-              <MenuItem
-                key={municipality}
-                value={municipality}
-                dense
-                sx={compactMenuItemSx}
-              >
-                {municipality}
-              </MenuItem>
-            ))}
-          </TextField>
-        <TextField
-            label="Barangay"
-            name="Barangay"
-            placeholder="Barangay"
-            fullWidth
-            required
-          />
-        </Box>
-
         <TextField
           label="Message"
           name="Message"
@@ -299,7 +211,6 @@ export default function ContactForm() {
           multiline
           fullWidth
         />
-
         <CustomButton disabled={status === "submitting"}>
           {status === "submitting" ? "Sending..." : "Send Message"}
         </CustomButton>

@@ -12,16 +12,13 @@ export default function Footer() {
         flexWrap: "wrap",
         fontSize: "0.92rem",
         gap: 1.5,
-        justifyContent: "space-between",
+        justifyContent: "center",
         px: "clamp(18px, 5vw, 78px)",
         py: 3.25,
       }}
     >
       <Typography component="span" sx={{ fontSize: "inherit" }}>
-        2026 AVerdida Surveying & Realty Services
-      </Typography>
-      <Typography component="span" sx={{ fontSize: "inherit" }}>
-        Designed and Developed by Archristian
+       Designed & Developed by Verdida @ 2026
       </Typography>
     </Box>
   );

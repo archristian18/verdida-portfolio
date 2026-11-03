@@ -4,28 +4,11 @@ import Typography from "@mui/material/Typography";
 import { ArrowLeft } from "lucide-react";
 import { surveyHighlights } from "../../data/siteContent.js";
 import { pageSeo } from "../../data/seoContent.js";
-import image1 from "../../images/highlights/image_1.jpg";
-import image2 from "../../images/highlights/image_2.jpg";
-import image3 from "../../images/highlights/image_3.jpg";
-import image4 from "../../images/highlights/image_4.jpg";
-import image5 from "../../images/highlights/image_5.jpg";
-import image6 from "../../images/highlights/image_6.jpg";
-import image7 from "../../images/highlights/image_7.jpg";
-import image8 from "../../images/highlights/image_8.jpg";
 import Footer from "../organisms/Footer.jsx";
 import Header from "../organisms/Header.jsx";
 import Seo from "../atoms/Seo.jsx";
 
-const highlightImages = {
-  image1,
-  image2,
-  image3,
-  image4,
-  image5,
-  image6,
-  image7,
-  image8,
-};
+const  techStack = {};
 
 export default function SurveyProductsPage() {
   return (
@@ -68,7 +51,7 @@ export default function SurveyProductsPage() {
               maxWidth: 900,
             }}
           >
-            Surveying Highlights
+            Jundel
           </Typography>
         </Box>
 
@@ -92,7 +75,7 @@ export default function SurveyProductsPage() {
             }}
           >
             {surveyHighlights.map((highlight) => {
-              const highlightImage = highlightImages[highlight.imageKey];
+              const highlightImage = techStack[highlight.imageKey];
 
               return (
                 <Box

@@ -13,13 +13,15 @@ export default function Header() {
       elevation={0}
       sx={{
         backdropFilter: "blur(16px)",
-        bgcolor: "rgba(255, 255, 255, 0.94)",
+        bgcolor: "text.primary",
+        color: 'white',
         borderBottom: "1px solid rgba(0, 9, 102, 0.12)",
       }}
     >
       <Toolbar
         disableGutters
         sx={{
+          color: "white",
           alignItems: { xs: "flex-start", sm: "center" },
           flexDirection: { xs: "column", sm: "row" },
           gap: { xs: 1.5, sm: 3 },
@@ -49,7 +51,7 @@ export default function Header() {
               variant="text"
               color="inherit"
               sx={{
-                color: "text.primary",
+                color: "white",
                 minWidth: 0,
                 px: { xs: 0.5, sm: 1, md: 1.1, lg: 1.5 },
                 fontSize: { xs: "0.82rem", sm: "0.88rem", md: "0.94rem", lg: "1rem" },

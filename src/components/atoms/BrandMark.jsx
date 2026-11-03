@@ -6,7 +6,7 @@ export default function BrandMark() {
     <Box
       component="img"
       src={logoUrl}
-      alt="AVerdida Surveying & Realty Services logo"
+      alt="Archristian P. Verdida Portfolio"
       sx={{
         borderRadius: 1,
         flex: "0 0 auto",

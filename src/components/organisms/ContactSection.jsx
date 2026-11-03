@@ -19,7 +19,7 @@ export default function ContactSection() {
         py: "clamp(54px, 9vw, 20px)",
       }}
     >
-      <SectionHeading eyebrow="Send for inquiries" title="Contact Us" />
+      <SectionHeading title="Contact Information" />
 
       <Box
         sx={{
@@ -38,7 +38,7 @@ export default function ContactSection() {
             spacing={1.75}
             sx={{
               alignContent: "start",
-              bgcolor: "background.paper",
+              bgcolor: "background.gray",
               border: "1px solid rgba(0, 9, 102, 0.13)",
               borderRadius: 1,
               boxShadow: "0 16px 46px rgba(0, 9, 102, 0.08)",
@@ -54,7 +54,7 @@ export default function ContactSection() {
             spacing={1.75}
             sx={{
               alignContent: "start",
-              bgcolor: "background.paper",
+              bgcolor: "background.gray",
               border: "1px solid rgba(0, 9, 102, 0.13)",
               borderRadius: 1,
               boxShadow: "0 16px 46px rgba(0, 9, 102, 0.08)",

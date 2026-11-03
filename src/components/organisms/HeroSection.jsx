@@ -41,7 +41,7 @@ export default function HeroSection() {
       id="home"
       sx={{
         alignItems: "center",
-        bgcolor: "rgba(0, 198, 211, 0.08)",
+        bgcolor: "#FFFFFF",
         color: "#FFFFFF",
         display: "grid",
         gap: "clamp(32px, 5vw, 76px)",
@@ -62,7 +62,7 @@ export default function HeroSection() {
             mb: 2.75,
           }}
         >
-          AVerdida Surveying & Realty Services
+          Archristian P. Verdida
         </Typography>
         <Typography
           sx={{
@@ -73,11 +73,13 @@ export default function HeroSection() {
             mb: 4,
           }}
         >
-          We provide FAST, RELIABLE & SUFFICIENT Surveying and Realty Services
+          I work as a full-stack developer where I handle both frontend and backend development using 
+          React, Laravel, PHP, MySQL, Git, and Docker. My responsibilities include analyzing requirements, estimating development effort, 
+          implementing features, fixing bugs, and collaborating with the team to deliver business applications.
         </Typography>
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5 }}>
           <CustomButton component="a" href="#contact" type={undefined}>
-            Contact Us
+            Contact Me
           </CustomButton>
           <CustomButton component="a" href="/survey-products" type={undefined}>
             Highlights

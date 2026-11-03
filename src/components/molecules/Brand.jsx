@@ -1,19 +1,17 @@
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import BrandMark from "../atoms/BrandMark.jsx";
 
 export default function Brand() {
   return (
     <Link
       href="/#home"
-      aria-label="AVerdida home"
+      aria-label="home"
       underline="none"
       color="inherit"
       sx={{ alignItems: "center", display: "inline-flex", gap: { xs: 1, sm: 1.25, lg: 1.5 } }}
     >
-      <BrandMark />
-      <Stack spacing={-0.5} sx={{ lineHeight: 1 }}>
+      <Stack spacing={-0.5} sx={{ lineHeight: 1, height: { xs: 72, sm: 100 }, justifyContent: 'center' }} > 
         <Typography
           component="strong"
           sx={{
@@ -23,18 +21,7 @@ export default function Brand() {
             padding: 0,
           }}
         >
-          AVerdida
-        </Typography>
-        <Typography
-          component="small"
-          color="text.secondary"
-          sx={{
-            fontSize: { xs: "1rem", sm: "1.2rem", md: "1.3rem", lg: "1.78rem" },
-            marginTop: -0.5,
-            padding: 0,
-          }}
-        >
-          Surveying & Realty Services
+          Project Portfolio
         </Typography>
       </Stack>
     </Link>

@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import { CheckCircle2 } from "lucide-react";
 
-export default function HighlightItem({ children }) {
+export default function TechStackItem({ children }) {
   return (
     <Box
       component="span"

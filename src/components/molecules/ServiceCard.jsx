@@ -8,7 +8,7 @@ export default function ServiceCard({ icon, title, text }) {
     <Card
       variant="outlined"
       sx={{
-        bgcolor: "background.paper",
+        bgcolor: "background.gray",
         borderColor: "rgba(0, 9, 102, 0.13)",
         boxShadow: "0 16px 46px rgba(0, 9, 102, 0.08)",
         height: "100%",

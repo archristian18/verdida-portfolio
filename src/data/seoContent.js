@@ -6,11 +6,11 @@ export const siteUrl = normalizeSiteUrl(
 );
 
 export const defaultSeo = {
-  siteName: "AVerdida Surveying & Realty Services",
+  siteName: "Archristian Verdida Portfolio",
   title:
-    "AVerdida Surveying & Realty Services Cebu | Land Surveying & Realty",
+    "Archristian Verdida Portfolio",
   description:
-    "AVerdida Surveying & Realty Services provides relocation, subdivision, consolidation, topographic, construction surveys, and real estate consultation in Cebu.",
+    "Archristian Verdida Portfolio",
   image: `${siteUrl}/logo.jpg`,
   locale: "en_PH",
   type: "website",
@@ -19,14 +19,14 @@ export const defaultSeo = {
 export const pageSeo = {
   home: {
     title:
-      "AVerdida Surveying & Realty Services Cebu | Land Surveying & Realty",
+      "Archristian P. Verdida Portfolio",
     description:
       "Get fast, reliable surveying and realty services in Cebu, including relocation surveys, subdivision surveys, consolidation surveys, topographic surveys, construction surveys, and real estate consultation.",
     path: "/",
   },
   surveyProducts: {
     title:
-      "Surveying Highlights | AVerdida Surveying & Realty Services Cebu",
+      "Portfolio Projects",
     description:
       "View surveying field work, project highlights, community updates, and service activities from AVerdida Surveying & Realty Services in Cebu.",
     path: "/survey-products",
